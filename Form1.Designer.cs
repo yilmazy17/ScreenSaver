@@ -29,7 +29,14 @@ namespace ScreenSaver
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // YeYScreenSaver
             // 
@@ -43,6 +50,8 @@ namespace ScreenSaver
             this.Text = "YeYScreenSaver";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.YeYScreenSaver_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.YeYScreenSaver_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.YeYScreenSaver_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.YeYScreenSaver_MouseDown);
             this.ResumeLayout(false);
@@ -50,6 +59,8 @@ namespace ScreenSaver
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
